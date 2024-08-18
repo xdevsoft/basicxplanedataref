@@ -31,7 +31,7 @@ The string `<4sxii400s` describes how to pack the data:
     `x`				a null byte, or 0x00. X-Plane is looking for a null-terminated 4-character string & this encodes the null value.
     `i`				a 4-byte integer
     `i`				another 4-byte integer (you could also combine these as `2i`, which consumes two integer arguments)
-    `400s`			a 400-byte object. Note that Python pads and zero-fills to fit 400 bytes.
+    `400s`				a 400-byte object. Note that Python pads and zero-fills to fit 400 bytes.
 
 # Data Refs
 
