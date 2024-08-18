@@ -17,12 +17,17 @@ X-Plane's interface is described using C language structures and expects a parti
 
 The easiest way to pack and unpack is to use the python `struct` module. 
 
-**For example:**
+**Structure**
 
-    cmd = b'RREF'
-    freq = 1
+    RREF <freq><index><dataref/channel>
+
+**Example:**
+
+    command = b'RREF'
+    frequency = 1
     index = 1
-    msg = struct.pack("<4sxii400s", cmd, freq, index, b'sim/flightmodel/forces/g_axil')
+    channel = b'sim/flightmodel/forces/g_axil'
+    msg = struct.pack('<4sxii400s', command, frequenct, index, channel)
 
 The string `<4sxii400s` describes how to pack the data:
 
@@ -33,13 +38,58 @@ The string `<4sxii400s` describes how to pack the data:
     `i`				another 4-byte integer (you could also combine these as `2i`, which consumes two integer arguments)
     `400s`				a 400-byte object. Note that Python pads and zero-fills to fit 400 bytes.
 
-# Data Refs
+# IP address and port
 
-    RREF <freq><index><dataref/channel>
+    # change this based on your XPlane computer ip address
+    IP = '192.168.1.36'
+    # Standard or default port number for XPLane 12
+    PORT = 49000
 
+# Create a socket / instantiate an object
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
+socket.AF_INET is a constant that represent the address (and protocol) families
+socket.SOCK_DGRAM is constant that represent the socket types
+
+# Sending socket message
+
+This function sends data to a socket we created or instantiated, and it requires a tuple of IP and PORT of the X-Plane
+
+    s.sendto(msg, (IP, PORT))
+
+# Receiving message
+
+    # This line will block or wait for the message from XPlane 12
+    # It will return a tuple
+    data, addr = s.recvfrom(1024)
+  
+**Method Signature/Syntax:**
+
+socket.recvfrom(bufsize[, flags])
+
+**Parameters:**
+
+bufsize - The number of bytes to be read from the **UDP socket.**
+
+flags - This is an optional parameter. As supported by the operating system. Multiple values combined together using bitwise OR. The default value is zero.
+
+# Unpacking the message / data
+
+UDP packets will have header RREF and include the index you passed during the request (that’s how you’ll know which dataref this is) and a single floating point value.
+
+    # We are only interested with the data starting from index 5 to 13 from the bytes 'data'
+    idx, value = struct.unpack('<if', data[5:13])
+
+The string `<if` describes how to pack the data:
+
+    `<`				little endian (i.e., least significant byte in the lowest memory position)
+    `i`				a 4-byte integer
+    `f`				a 4-byte float
 
 # Requirements
 
 * Python 3
 * Running X-Plane 12
+
 
