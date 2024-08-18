@@ -27,7 +27,7 @@ The easiest way to pack and unpack is to use the python `struct` module.
 The string `<4sxii400s` describes how to pack the data:
 
     `<`				little endian (i.e., least significant byte in the lowest memory position)
-    `4s`			a 4-byte object, commonly string, 'RREF', expressed as a bytes: b'RREF'.
+    `4s`				a 4-byte object, commonly string, 'RREF', expressed as a bytes: b'RREF'.
     `x`				a null byte, or 0x00. X-Plane is looking for a null-terminated 4-character string & this encodes the null value.
     `i`				a 4-byte integer
     `i`				another 4-byte integer (you could also combine these as `2i`, which consumes two integer arguments)
