@@ -110,8 +110,9 @@ The string `<if` describes how to pack the data:
 # What's next?
 
  - Received data continuously 
- - Subscribe to multiple channels and run them using thread
+ - Subscribe to multiple channels
  - Use callback and event
  - Get X-Plane IP and port dynamically
+ - Use threading
 
  
