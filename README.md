@@ -107,3 +107,11 @@ The string `<if` describes how to pack the data:
  - Ubuntu Linux 20.04 (X-Plane server)
  - Development Laptop (Linux & MacBook)
 
+# What's next?
+
+ - Received data continuously 
+ - Subscribe to multiple channels and run them using thread
+ - Use callback and event
+ - Get X-Plane IP and port dynamically
+
+ 
