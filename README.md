@@ -87,6 +87,10 @@ The string `<if` describes how to pack the data:
     `i`				a 4-byte integer
     `f`				a 4-byte float
 
+# Printing the data we received
+
+    print(idx, value)
+
 # Requirements
 
 * Python 3
