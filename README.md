@@ -105,7 +105,9 @@ The string `<if` describes how to pack the data:
 
  - Steam / X-Plane 12.1.1  
  - Ubuntu Linux 20.04 (X-Plane server)
- - Development Laptop (Linux & MacBook)
+ - Development Laptop
+	 - Linux / Python 3.10.12
+	 - MacBook / Python 3.11
 
 # What's next?
 
