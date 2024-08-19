@@ -1,6 +1,11 @@
 # Basic X-Plane Data Ref
 Basic X-Plane 12 UDP Socket programming using Python
 
+I wrote it while I'm exploring X-Plane 12 and I'm planning to create my own 3DOF motion simulation rig.
+I will also improved this simple example and you will also see how it will be used.
+
+That's why I want to share my experience and adventure while I'm building it.
+
 # Additional readings
 
     Socket - https://docs.python.org/3/library/socket.html#example
@@ -96,4 +101,9 @@ The string `<if` describes how to pack the data:
 * Python 3
 * Running X-Plane 12
 
+# Setup
+
+ - Steam / X-Plane 12  
+ - Ubuntu Linux 20.04 (X-Plane server)
+ - Development Laptop (Linux & MacBook)
 
