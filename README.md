@@ -58,7 +58,7 @@ This function sends data to a socket we created or instantiated, and it requires
 
     s.sendto(msg, (IP, PORT))
 
-# Receiving message
+# Receiving socket message
 
     # This line will block or wait for the message from XPlane 12
     # It will return a tuple
