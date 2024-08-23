@@ -122,6 +122,9 @@ The string `<if` describes how to pack the data:
 	 - Linux / Python 3.10.12
 	 - Mac / Python 3.12.2
 
+# Youtube Video
+https://www.youtube.com/watch?v=T67t9zD2oGE
+
 # What's next?
 
  - Received data continuously 
